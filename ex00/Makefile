@@ -1,4 +1,6 @@
-SRCS	= main.cpp \
+SRCS	= 	main.cpp \
+			checkType.cpp \
+			printType.cpp \
 
 CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic
 CC		= g++-12
@@ -23,7 +25,7 @@ fclean: clean
 re: fclean all
 
 run:
-	./${NAME} "42.0f"
+	./${NAME} "-inff"
 
 mrun: all run
 
