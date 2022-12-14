@@ -1,10 +1,10 @@
 SRCS	= 	main.cpp \
-			Data.cpp \
-			serialize.cpp
+			Base.cpp \
+			identify.cpp
 
 CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic
 CC		= g++-12
-NAME	= serialize
+NAME	= identify
 OBJS	= ${SRCS:.cpp=.o}
 RM		= rm -f
 
@@ -25,7 +25,7 @@ fclean: clean
 re: fclean all
 
 run:
-	./${NAME} "0.005f"
+	./${NAME}
 
 mrun: all run
 

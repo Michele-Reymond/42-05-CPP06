@@ -1,8 +1,10 @@
-SRCS	= 	main.cpp
+SRCS	= 	main.cpp \
+			checkType.cpp \
+			printType.cpp \
 
 CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic
 CC		= g++-12
-NAME	= swap
+NAME	= scalar
 OBJS	= ${SRCS:.cpp=.o}
 RM		= rm -f
 
@@ -23,7 +25,7 @@ fclean: clean
 re: fclean all
 
 run:
-	./${NAME}
+	./${NAME} "0.005f"
 
 mrun: all run
 
