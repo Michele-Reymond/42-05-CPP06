@@ -40,27 +40,27 @@ void printOther(int kind) {
 
 void convert(void *what, int kind, int decimals) {
     if (kind == Char) {
-        printChar(static_cast<char>(*(char *)what));
-        printInt(static_cast<int>(*(char *)what));
-        printFloat(static_cast<float>(*(char *)what), decimals);
-        printDouble(static_cast<double>(*(char *)what), decimals);
+        printChar(static_cast<char>(*reinterpret_cast<char *>(what)));
+        printInt(static_cast<int>(*reinterpret_cast<char *>(what)));
+        printFloat(static_cast<float>(*reinterpret_cast<char *>(what)), decimals);
+        printDouble(static_cast<double>(*reinterpret_cast<char *>(what)), decimals);
     }
     else if (kind == Int) {
-        printChar(static_cast<char>(*(int *)what));
-        printInt(static_cast<int>(*(int *)what));
-        printFloat(static_cast<float>(*(int *)what), decimals);
-        printDouble(static_cast<double>(*(int *)what), decimals);
+        printChar(static_cast<char>(*reinterpret_cast<int *>(what)));
+        printInt(static_cast<int>(*reinterpret_cast<int *>(what)));
+        printFloat(static_cast<float>(*reinterpret_cast<int *>(what)), decimals);
+        printDouble(static_cast<double>(*reinterpret_cast<int *>(what)), decimals);
     }
     else if (kind == Float) {
-        printChar(static_cast<char>(*(float *)what));
-        printInt(static_cast<int>(*(float *)what));
-        printFloat(static_cast<float>(*(float *)what), decimals);
-        printDouble(static_cast<double>(*(float *)what), decimals);
+        printChar(static_cast<char>(*reinterpret_cast<float *>(what)));
+        printInt(static_cast<int>(*reinterpret_cast<float *>(what)));
+        printFloat(static_cast<float>(*reinterpret_cast<float *>(what)), decimals);
+        printDouble(static_cast<double>(*reinterpret_cast<float *>(what)), decimals);
     }
     else if (kind == Double) {
-        printChar(static_cast<char>(*(double *)what));
-        printInt(static_cast<int>(*(double *)what));
-        printFloat(static_cast<float>(*(double *)what), decimals);
-        printDouble(static_cast<double>(*(double *)what), decimals);
+        printChar(static_cast<char>(*reinterpret_cast<double *>(what)));
+        printInt(static_cast<int>(*reinterpret_cast<double *>(what)));
+        printFloat(static_cast<float>(*reinterpret_cast<double *>(what)), decimals);
+        printDouble(static_cast<double>(*reinterpret_cast<double *>(what)), decimals);
     }
 }

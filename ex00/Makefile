@@ -25,7 +25,7 @@ fclean: clean
 re: fclean all
 
 run:
-	./${NAME} "-inff"
+	./${NAME} "0.005f"
 
 mrun: all run
 
