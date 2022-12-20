@@ -7,6 +7,7 @@
 # include <cstdlib>
 # include <iomanip>
 # include <cmath>
+# include <climits>
 
 typedef enum e_types
 {

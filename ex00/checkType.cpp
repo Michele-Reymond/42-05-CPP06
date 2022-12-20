@@ -7,21 +7,15 @@ static int isChar(std::string arg) {
     return 0;
 }
 
-static int isInt(std::string arg) {
-    for (int i = 0; arg[i] != '\0'; i++) {
-        if (!isnumber(arg[i]))
-            return 0;
-    }
-    return 1;
-}
-
 int howMuchDecimals(std::string arg) {
     int i = 0;
     int j = 0;
 
+    while (arg[i] != '\0' && arg[i] != '.')
+            i++;
+    if (arg[i] == '\0')
+        return (0);
     while (arg[i] != '\0') {
-        if (arg[i] == '.')
-            j -= i;
         if (arg[i] == 'f')
             j--;
         j++;
@@ -32,7 +26,7 @@ int howMuchDecimals(std::string arg) {
 }
 
 static int isFloat(std::string arg) {
-    float f;
+    double f;
     int decimals;
 
     decimals = howMuchDecimals(arg);
@@ -46,7 +40,7 @@ static int isFloat(std::string arg) {
 }
 
 static int isDouble(std::string arg) {
-    float f;
+    double f;
     int decimals;
 
     decimals = howMuchDecimals(arg);
@@ -57,6 +51,27 @@ static int isDouble(std::string arg) {
     if (arg == newS)
         return 1;
     return 0;
+}
+
+static int is_MaxMinInt(std::string arg) {
+    double d;
+
+    std::istringstream(arg) >> d;
+    if (d > INT_MAX || d < INT_MIN)
+        return 1;
+    return 0;
+}
+
+static int isInt(std::string arg) {
+    for (int i = 0; arg[i] != '\0'; i++) {
+        if (i == 0 && (arg[i] == '-' || arg[i] == '+'))
+            i++;
+        if (!isnumber(arg[i]))
+            return 0;
+    }
+    if (is_MaxMinInt(arg))
+        return 0;
+    return 1;
 }
 
 static int isOther(std::string arg) {

@@ -13,7 +13,7 @@ static void printInt(int i) {
 	std::cout << i << std::endl;
 }
 
-static void printFloat(float f, int decimals) {
+static void printFloat(double f, int decimals) {
 	std::cout << "float: ";
 	std::cout << std::fixed << std::setprecision(decimals) << f << "f" << std::endl;
 }
@@ -24,7 +24,7 @@ static void printDouble(double d, int decimals) {
 }
 
 void printOther(int kind) {
-    float f;
+    double f;
 
     if (kind == Nan || kind == Nanf)
         f = NAN;
